@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmbc0lw6arlq7"]
+[gd_scene load_steps=10 format=3 uid="uid://bmbc0lw6arlq7"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_o7us3"]
 [ext_resource type="PackedScene" uid="uid://br5gwqcgrbi07" path="res://scenes/player.tscn" id="2_pbp6k"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1ysg188ashvw" path="res://scenes/jump_pad.tscn" id="4_sbn6x"]
 [ext_resource type="PackedScene" uid="uid://bsu8pkgnyfbpo" path="res://scenes/saw.tscn" id="5_fxx2b"]
 [ext_resource type="PackedScene" uid="uid://dcjnwl863yy8j" path="res://scenes/spike_ball.tscn" id="6_67h2d"]
+[ext_resource type="PackedScene" uid="uid://sh3g0e3bts84" path="res://scenes/tile_map.tscn" id="7_f1ure"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aenke"]
 size = Vector2(848, 20)
@@ -20,7 +21,7 @@ script = ExtResource("1_o7us3")
 position = Vector2(224, 135)
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(-3, 244)
+position = Vector2(-124, -251)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
@@ -45,18 +46,24 @@ position = Vector2(225, 135)
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="JumpPad" parent="Objects" instance=ExtResource("4_sbn6x")]
-position = Vector2(352, 234)
+position = Vector2(103, 208)
 
 [node name="JumpPad2" parent="Objects" instance=ExtResource("4_sbn6x")]
-position = Vector2(379, 234)
+position = Vector2(74, 208)
 jump_force = 400
 
 [node name="Traps" type="Node2D" parent="."]
 
 [node name="Saw" parent="Traps" instance=ExtResource("5_fxx2b")]
-position = Vector2(92, 214)
+position = Vector2(5, 189)
+
+[node name="Saw2" parent="Traps" instance=ExtResource("5_fxx2b")]
+position = Vector2(4, 150)
 
 [node name="SpikeBall" parent="Traps" instance=ExtResource("6_67h2d")]
-position = Vector2(291, 220)
+position = Vector2(379, 192)
+
+[node name="TileMap" parent="." instance=ExtResource("7_f1ure")]
+layer_0/tile_data = PackedInt32Array(1048575, 393216, 2, 983040, 458752, 2, 983041, 458752, 2, 983042, 458752, 2, 983043, 458752, 2, 983044, 458752, 2, 983045, 458752, 2, 983046, 458752, 2, 983047, 458752, 2, 983048, 458752, 2, 983049, 458752, 2, 983050, 458752, 2, 983051, 458752, 2, 983052, 458752, 2, 983053, 458752, 2, 983054, 458752, 2, 983055, 458752, 2, 983056, 458752, 2, 983057, 458752, 2, 983058, 458752, 2, 983059, 458752, 2, 983060, 458752, 2, 983061, 458752, 2, 983062, 458752, 2, 983063, 458752, 2, 983064, 458752, 2, 983065, 458752, 2, 983066, 458752, 2, 983067, 458752, 2, 983068, 524288, 2, 917503, 393216, 0, 983039, 393216, 1, 851968, 458752, 0, 917504, 458752, 1, 851969, 458752, 0, 917505, 458752, 1, 851970, 458752, 0, 917506, 458752, 1, 851971, 458752, 0, 917507, 458752, 1, 851972, 458752, 0, 917508, 458752, 1, 851973, 458752, 0, 917509, 458752, 1, 851974, 458752, 0, 917510, 458752, 1, 851975, 458752, 0, 917511, 458752, 1, 851976, 458752, 0, 917512, 458752, 1, 851977, 458752, 0, 917513, 458752, 1, 851978, 458752, 0, 917514, 458752, 1, 851979, 458752, 0, 917515, 458752, 1, 851980, 458752, 0, 917516, 458752, 1, 851981, 458752, 0, 917517, 458752, 1, 851982, 458752, 0, 917518, 458752, 1, 851983, 458752, 0, 917519, 458752, 1, 851984, 458752, 0, 917520, 458752, 1, 851985, 458752, 0, 917521, 458752, 1, 851986, 458752, 0, 917522, 458752, 1, 851987, 458752, 0, 917523, 458752, 1, 851988, 458752, 0, 917524, 458752, 1, 851989, 458752, 0, 917525, 458752, 1, 851990, 458752, 0, 917526, 458752, 1, 851991, 458752, 0, 917527, 458752, 1, 851992, 458752, 0, 917528, 458752, 1, 851993, 458752, 0, 917529, 458752, 1, 851994, 458752, 0, 917530, 458752, 1, 851995, 458752, 0, 917531, 458752, 1, 851996, 524288, 0, 917532, 524288, 1, 589842, 1114112, 1, 589843, 1179648, 1, 589844, 1245184, 1)
 
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
