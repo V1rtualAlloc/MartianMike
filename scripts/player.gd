@@ -12,7 +12,6 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		if velocity.y > 500:
 			velocity.y = 500
-		print("isn't on floor")
 	
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		jump(jump_force)
