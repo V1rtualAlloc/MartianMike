@@ -80,7 +80,7 @@ script = ExtResource("1_skee7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ao61h")
-frame_progress = 0.74901
+frame_progress = 0.51703
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
