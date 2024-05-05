@@ -47,8 +47,7 @@ func _on_level_timer_timeout():
 		hud.set_time_label(time_left)
 		if time_left < 0:
 			reset_player()
-			time_left = level_time
-			hud.set_time_label(time_left)
+			AudioPlayer.play_sfx("hurt")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):
@@ -56,13 +55,19 @@ func _process(_delta):
 	elif Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
 
-func _on_deathzone_body_entered(_body):
-	reset_player()
+func _on_deathzone_body_entered(body):
+	if body is Player:
+		print("player hit")
+		AudioPlayer.play_sfx("hurt")
+		reset_player()
 
 func _on_trap_touched_player():
+	AudioPlayer.play_sfx("hurt")
 	reset_player()
 
 func reset_player():
+	time_left = level_time
+	hud.set_time_label(time_left)
 	player.velocity = Vector2.ZERO
 	player.position = start.get_spawn_pos()
 

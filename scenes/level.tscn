@@ -22,12 +22,6 @@ level_time = 15
 
 [node name="UILayer" parent="." instance=ExtResource("4_pxjvf")]
 
-[node name="Deathzone" parent="." instance=ExtResource("4_ww760")]
-position = Vector2(279, -1)
-
-[node name="CollisionShape2D" parent="Deathzone" index="0"]
-position = Vector2(979.5, 331)
-
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="JumpPad" parent="Objects" instance=ExtResource("4_sbn6x")]
@@ -73,4 +67,5 @@ position = Vector2(2056, 16)
 position = Vector2(224, 135)
 metadata/_edit_lock_ = true
 
-[editable path="Deathzone"]
+[node name="Deathzone" parent="." instance=ExtResource("4_ww760")]
+position = Vector2(884, 0)
